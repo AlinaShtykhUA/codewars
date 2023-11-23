@@ -25,7 +25,7 @@ function getCount(str) {
   }
   return count;
 }
-//! Краще рішення:
+//! Інші рішення:
 function getCount(str) {
   return (str.match(/[aeiou]/gi) || []).length;
 }
@@ -61,4 +61,56 @@ function towerBuilder(n) {
     (_, i) =>
       ' '.repeat(n - 1 - i) + '*'.repeat(i * 2 + 1) + ' '.repeat(n - 1 - i)
   );
+}
+
+//* Day 2 23/11
+//todo In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number. Highest must be first:
+//! Моє рішення:
+function highAndLow(numbers) {
+  numbers = numbers.split(' ');
+
+  const minNum = Math.min(...numbers);
+  const maxNum = Math.max(...numbers);
+
+  const res = `${maxNum} ${minNum}`;
+
+  return res;
+}
+
+//! Інші рішення:
+function highAndLow(numbers) {
+  numbers = numbers.split(' ');
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+
+function highAndLow(numbers) {
+  let arr = numbers.split(' ').map(Number);
+  return Math.max(...arr) + ' ' + Math.min(...arr);
+}
+
+function highAndLow(numbers) {
+  var arr = numbers.split(' ').sort(function (a, b) {
+    return a - b;
+  });
+  return arr[arr.length - 1] + ' ' + arr[0];
+}
+
+//todo Помножити всі числа в масиві:
+//! Моє рішення:
+function grow(x) {
+  return x.reduce((mult, current) => mult * current);
+}
+
+//! Інші рішення:
+const grow = (x) => eval(x.join('*'));
+
+//todo Чи викликано за допомогою new:
+//! Моє рішення:
+function wasCalledWithNew() {
+  return new Boolean(new.target);
+}
+
+//! Інші рішення:
+function wasCalledWithNew() {
+  return new.target ? { valueOf: () => true } : { valueOf: () => false };
 }
