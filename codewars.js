@@ -114,3 +114,52 @@ function wasCalledWithNew() {
 function wasCalledWithNew() {
   return new.target ? { valueOf: () => true } : { valueOf: () => false };
 }
+
+//* Day 3 24/11
+//todo Фільтер масиву за типом:
+//! Моє рішення:
+function filter_list(l) {
+  return l.filter((item) => typeof item === 'number');
+}
+
+//! Інші рішення:
+function filter_list(l) {
+  return l.filter(Number.isInteger);
+}
+
+//todo Прибрати camel casing і додати пробіл:
+//! Моє рішення:
+function solution(string) {
+  return string
+    .split('')
+    .map((l) => (l === l.toUpperCase() ? ' ' + l : l))
+    .join('');
+}
+
+//! Інші рішення:
+function solution(string) {
+  return string.replace(/([A-Z])/g, ' $1');
+}
+
+function solution(text) {
+  return text.split(/(?=[A-Z])/).join(' ');
+}
+
+function solution(string) {
+  return string.replace(/(?=[A-Z])/g, ' ');
+}
+
+//todo In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are: Years divisible by 4 are leap years, but years divisible by 100 are not leap years, but years divisible by 400 are leap years. Tested years are in range 1600 ≤ year ≤ 4000.
+//! Моє рішення:
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
+    ? true
+    : false;
+}
+
+//! Інші рішення:
+function isLeapYear(year) {
+  return (year % 100 !== 0 && year % 4 === 0) || year % 400 === 0;
+}
+
+const isLeapYear = (year) => new Date(year, 1, 29).getDate() == 29;
