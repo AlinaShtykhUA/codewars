@@ -163,3 +163,65 @@ function isLeapYear(year) {
 }
 
 const isLeapYear = (year) => new Date(year, 1, 29).getDate() == 29;
+
+//* Day 4 25/11
+//todo Знайти найменше значення
+//! Моє рішення:
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args);
+  }
+}
+//! Інші рішення:
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return args.sort((a, b) => a - b)[0];
+  }
+}
+
+//todo Видалити пробіли
+//! Моє рішення:
+function noSpace(x) {
+  return x
+    .split('')
+    .map((i) => (i == ' ' ? i.trim() : i))
+    .join('');
+}
+
+//! Інші рішення:
+function noSpace(x) {
+  return x.split(' ').join('');
+}
+
+function noSpace(x) {
+  return x.replaceAll(' ', '');
+}
+
+function noSpace(x) {
+  return x.replace(/ /g, '');
+}
+
+//todo Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces. Rules for a smiling face: Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ; . A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~. Every smiling face must have a smiling mouth that should be marked with either ) or D:
+//! Моє рішення:
+function countSmileys(arr) {
+  const smiles = /[:;][-~]?[)D]/;
+  let count = 0;
+
+  for (let s of arr) {
+    if (smiles.exec(s)) {
+      //test
+      count++;
+    }
+  }
+  return count;
+}
+
+//! Інші рішення:
+function countSmileys(arr) {
+  return arr.filter((x) => /^[:;][-~]?[)D]$/.test(x)).length;
+}
+
+const countSmileys = (ss) =>
+  ss.reduce((a, s) => a + /^[:;][-~]?[D)]$/.test(s), 0);
+
+countSmileys = (arr) => (arr.join``.match(/[:;][~-]?[)D]/g) || []).length;
