@@ -225,3 +225,22 @@ const countSmileys = (ss) =>
   ss.reduce((a, s) => a + /^[:;][-~]?[D)]$/.test(s), 0);
 
 countSmileys = (arr) => (arr.join``.match(/[:;][~-]?[)D]/g) || []).length;
+
+//* Day 5 26/11
+//todo You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+//! Моє рішення:
+function sortArray(array) {
+  const oddNum = array.filter((n) => n % 2 !== 0).sort((a, b) => a - b);
+
+  let oddIndex = 0;
+  const result = array.map((num) => (num % 2 !== 0 ? oddNum[oddIndex++] : num));
+
+  return result;
+}
+
+//! Інші рішення:
+function sortArray(array) {
+  var odd = array.filter((n) => n % 2).sort((a, b) => a - b);
+
+  return array.map((n) => (n % 2 ? odd.shift() : n));
+}
