@@ -297,3 +297,46 @@ var number = function (busStops) {
 //! Інші рішення:
 const number = (busStops) =>
   busStops.reduce((rem, [on, off]) => rem + on - off, 0);
+
+//* Day 7 28/11
+//todo Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+//! Моє рішення:
+function repeatStr(n, s) {
+  return s.repeat(n);
+}
+
+//! Інші рішення:
+function repeatStr(n, s) {
+  return n > 0 ? s.repeat(n) : '';
+}
+
+//todo You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+//! Моє рішення:
+function getMiddle(s) {
+  const length = s.length;
+  const middleIndex = Math.floor(length / 2);
+
+  if (length % 2 === 1) {
+    return s[middleIndex];
+  } else {
+    return s.substring(middleIndex - 1, middleIndex + 1);
+  }
+}
+
+//! Інші рішення:
+function getMiddle(s) {
+  return s.slice((s.length - 1) / 2, s.length / 2 + 1);
+}
+
+//todo Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+//! Моє рішення:
+function invert(array) {
+  return array.map((n) => (n ? -n : n));
+}
+
+//! Інші рішення:
+const invert = (array) => array.map((num) => -num);
+
+function invert(array) {
+  return array.map((n) => n && -n);
+}
