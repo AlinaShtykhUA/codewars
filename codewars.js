@@ -340,3 +340,51 @@ const invert = (array) => array.map((num) => -num);
 function invert(array) {
   return array.map((n) => n && -n);
 }
+
+//* Day 8 29/11
+//todo Сума двох найменших чисел
+//! Моє рішення:
+function sumTwoSmallestNumbers(numbers) {
+  const sNum = numbers.sort((a, b) => a - b);
+  return sNum[0] + sNum[1];
+}
+
+//! Інші рішення:
+function sumTwoSmallestNumbers(numbers) {
+  var [a, b] = numbers.sort((a, b) => a - b);
+  return a + b;
+}
+
+const sumTwoSmallestNumbers = (numbers) =>
+  numbers
+    .sort((x, y) => x - y)
+    .slice(0, 2)
+    .reduce((x, y) => x + y);
+
+//todo  ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. If the function is passed a valid PIN string, return true, else return false.
+//! Моє рішення:
+function validatePIN(pin) {
+  return (pin.length === 4 || pin.length === 6) && /^\d+$/.test(pin);
+}
+
+//! Інші рішення:
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin);
+}
+
+//todo  Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list. Don't change the order of the elements that are left.
+//! Моє рішення:
+function removeSmallest(numbers) {
+  const minNum = numbers.indexOf(Math.min(...numbers));
+
+  return numbers.slice(0, minNum).concat(numbers.slice(minNum + 1));
+}
+
+//! Інші рішення:
+function removeSmallest(numbers) {
+  let indexOfMin = numbers.indexOf(Math.min(...numbers));
+  return [...numbers.slice(0, indexOfMin), ...numbers.slice(indexOfMin + 1)];
+}
+
+const removeSmallest = (numbers) =>
+  numbers.filter((n, i) => i !== numbers.indexOf(Math.min(...numbers)));
