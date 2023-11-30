@@ -388,3 +388,71 @@ function removeSmallest(numbers) {
 
 const removeSmallest = (numbers) =>
   numbers.filter((n, i) => i !== numbers.indexOf(Math.min(...numbers)));
+
+//* Day 9 30/11
+//todo Прахувати вік котів і собак відносно людського
+//! Моє рішення:
+var humanYearsCatYearsDogYears = function (humanYears) {
+  let catY, dogY;
+  //     if (humanYears === 1) {
+  //         catY = 15;
+  //         dogY = 15;
+  //     } else if (humanYears === 2) {
+  //         catY = 15 + 9;
+  //         dogY = 15 + 9;
+  //     } else {
+  //         catY = 15 + 9 + 4 * (humanYears - 2);
+  //         dogY = 15 + 9 + 5 * (humanYears - 2);
+  //     }
+  //Просто, щоб попрактикуватись
+  switch (humanYears) {
+    case 1:
+      catY = 15;
+      dogY = 15;
+      break;
+    case 2:
+      catY = 15 + 9;
+      dogY = 15 + 9;
+      break;
+    default:
+      catY = 15 + 9 + 4 * (humanYears - 2);
+      dogY = 15 + 9 + 5 * (humanYears - 2);
+      break;
+  }
+
+  return [humanYears, catY, dogY];
+};
+
+//! Інші рішення:
+var humanYearsCatYearsDogYears = function (y) {
+  if (y == 1) return [1, 15, 15];
+  if (y == 2) return [2, 24, 24];
+  return [y, (y - 2) * 4 + 24, (y - 2) * 5 + 24];
+};
+
+const humanYearsCatYearsDogYears = (humanYears) => [
+  humanYears,
+  (humanYears - 1 ? 16 : 11) + 4 * humanYears,
+  (humanYears - 1 ? 14 : 10) + 5 * humanYears,
+];
+
+//todo Convert number to reversed array of digits
+//! Моє рішення:
+function digitize(n) {
+  return String(n).split('').reverse().map(Number);
+}
+
+//! Інші рішення:
+function digitize(n) {
+  return Array.from(String(n), Number).reverse();
+}
+
+function digitize(n) {
+  return (n + '').split('').map(Number).reverse();
+}
+
+//todo Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+//! Моє рішення:
+function sortByLength(array) {
+  return array.sort((a, b) => a.length - b.length);
+}
