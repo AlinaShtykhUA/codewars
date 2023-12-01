@@ -456,3 +456,53 @@ function digitize(n) {
 function sortByLength(array) {
   return array.sort((a, b) => a.length - b.length);
 }
+
+//* Day 10 01/12
+//todo In this Kata, you will be given two strings a and b and your task will be to return the characters that are not common in the two strings.
+//! Моє рішення:
+function solve(a, b) {
+  const concat = a + b;
+
+  const uniq = concat
+    .split('')
+    .filter((c) => !(a.includes(c) && b.includes(c)))
+    .join('');
+
+  return uniq;
+}
+
+//! Інші рішення:
+function solve(a, b) {
+  return (a + b)
+    .split('')
+    .filter((c) => !a.includes(c) || !b.includes(c))
+    .join('');
+}
+
+//todo No Story. No Description. Only by Thinking and Testing. Look at result of testcase, guess the code!
+//! Моє рішення:
+function testit(a, b) {
+  return [...new Set(a), ...new Set(b)].sort((a, b) => a - b);
+}
+
+//! Інші рішення:
+function testit(a, b) {
+  a = [...new Set(a)];
+  b = [...new Set(b)];
+  return a.concat(b).sort(function (c, d) {
+    return c - d;
+  });
+}
+
+//todo Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+//! Моє рішення:
+function longest(s1, s2) {
+  return [...new Set(s1 + s2)].sort().join('');
+}
+
+//! Інші рішення:
+function longest(s1, s2) {
+  return Array.from(new Set(s1 + s2))
+    .sort()
+    .join('');
+}
