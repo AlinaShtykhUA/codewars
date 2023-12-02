@@ -506,3 +506,58 @@ function longest(s1, s2) {
     .sort()
     .join('');
 }
+
+//* Day 11 02/12
+//todo Build a function that returns an array of integers from n to 1 where n>0.
+//! Моє рішення:
+const reverseSeq = (n) => {
+  const res = [];
+
+  for (let i = n; i >= 1; i--) {
+    res.push(i);
+  }
+  return res;
+};
+
+//! Інші рішення:
+const reverseSeq = (n) => {
+  return Array(n)
+    .fill(0)
+    .map((e, i) => n - i);
+};
+
+const reverseSeq = (length) => Array.from({ length }, () => length--);
+
+//todo Simple, given a string of words, return the length of the shortest word(s).
+//! Моє рішення:
+function findShort(s) {
+  const arr = s.split(' ');
+  const shortest = arr.reduce((short, cur) => {
+    return cur.length < short.length ? cur : short;
+  }, arr[0]);
+  return shortest.length;
+}
+
+//! Інші рішення:
+function findShort(s) {
+  return Math.min(...s.split(' ').map((s) => s.length));
+}
+
+const findShort = (s) =>
+  s
+    .split(' ')
+    .sort((a, b) => b.length - a.length)
+    .pop().length;
+
+function findShort(s) {
+  return s
+    .split(' ')
+    .map((a) => a.length)
+    .reduce((a, b) => Math.min(a, b));
+}
+
+//todo Jenny has written a function that returns a greeting for a user. However, she's in love with Johnny, and would like to greet him slightly different. She added a special case to her function, but she made a mistake.
+//! Моє рішення:
+function greet(name) {
+  return name === 'Johnny' ? 'Hello, my love!' : 'Hello, ' + name + '!';
+}
