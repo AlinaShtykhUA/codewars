@@ -561,3 +561,10 @@ function findShort(s) {
 function greet(name) {
   return name === 'Johnny' ? 'Hello, my love!' : 'Hello, ' + name + '!';
 }
+
+//* Day 12 03/12
+//todo Чи квадрат
+//! Моє рішення:
+var isSquare = function (n) {
+  return Math.sqrt(n) % 1 === 0;
+};
