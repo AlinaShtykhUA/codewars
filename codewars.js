@@ -568,3 +568,35 @@ function greet(name) {
 var isSquare = function (n) {
   return Math.sqrt(n) % 1 === 0;
 };
+
+//* Day 13 04/12
+//todo Write a program to determine if a string contains only unique characters. Return true if it does and false otherwise. The string may contain any of the 128 ASCII characters. Characters are case-sensitive, e.g. 'a' and 'A' are considered different characters.
+//! Моє рішення:
+function hasUniqueChars(str) {
+  const arr = str.split('');
+  const uniq = new Set(arr);
+  return arr.length === uniq.size;
+}
+
+//! Інші рішення:
+let hasUniqueChars = (str) => new Set(str).size === str.length;
+
+function hasUniqueChars(str) {
+  return !/(.).*\1/.test(str);
+}
+
+function hasUniqueChars(str) {
+  return str.length === new Set(str).size;
+}
+
+//todo Reverse string
+//! Моє рішення:
+function solution(str) {
+  return str.split('').reverse().join('');
+}
+
+//todo Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering. Write a function which takes a list of strings and returns each line prepended by the correct number. The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+//! Моє рішення:
+var number = function (array) {
+  return array.map((line, i) => `${i + 1}: ${line}`);
+};
