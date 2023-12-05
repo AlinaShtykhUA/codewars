@@ -600,3 +600,47 @@ function solution(str) {
 var number = function (array) {
   return array.map((line, i) => `${i + 1}: ${line}`);
 };
+
+//* Day 14 05/12
+//todo Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+//! Моє рішення:
+function removeExclamationMarks(s) {
+  return s.replace(/!/g, '');
+}
+
+//! Інші рішення:
+function removeExclamationMarks(s) {
+  return s.split('!').join('');
+}
+
+function removeExclamationMarks(s) {
+  return s.replaceAll('!', '');
+}
+
+//todo Write a function to split a string and convert it into an array of words.
+//! Моє рішення:
+function stringToArray(string) {
+  return string.split(' ');
+}
+
+//todo Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+//! Моє рішення:
+function persistence(num) {
+  let count = 0;
+
+  while (num >= 10) {
+    num = String(num)
+      .split('')
+      .reduce((n, digit) => n * digit, 1);
+    count++;
+  }
+
+  return count;
+}
+
+//! Інші рішення:
+const persistence = (num) => {
+  return `${num}`.length > 1
+    ? 1 + persistence(`${num}`.split('').reduce((a, b) => a * +b))
+    : 0;
+};
