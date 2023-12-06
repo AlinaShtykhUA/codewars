@@ -644,3 +644,48 @@ const persistence = (num) => {
     ? 1 + persistence(`${num}`.split('').reduce((a, b) => a * +b))
     : 0;
 };
+
+//* Day 15 06/12
+//todo Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+//! Моє рішення:
+function between(a, b) {
+  const res = [];
+
+  for (let i = a; i <= b; i++) {
+    res.push(i);
+  }
+  return res;
+}
+
+//! Інші рішення:
+const between = (a, b) => Array.from(new Array(b - a + 1), (_, i) => a + i);
+
+//todo Given an array of integers, return a new array with each value doubled.
+//! Моє рішення:
+function maps(x) {
+  return x.map((n) => n * 2);
+}
+
+//todo The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+//! Моє рішення:
+function duplicateEncode(word) {
+  return word
+    .toLowerCase()
+    .split('')
+    .map((w, i, arr) => (arr.indexOf(w) === arr.lastIndexOf(w) ? '(' : ')'))
+    .join('');
+}
+
+//! Інші рішення:
+function duplicateEncode(word) {
+  var unique = '';
+  word = word.toLowerCase();
+  for (var i = 0; i < word.length; i++) {
+    if (word.lastIndexOf(word[i]) == word.indexOf(word[i])) {
+      unique += '(';
+    } else {
+      unique += ')';
+    }
+  }
+  return unique;
+}
