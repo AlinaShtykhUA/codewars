@@ -418,3 +418,30 @@ function duplicateEncode(word) {
     .map((w, i, arr) => (arr.indexOf(w) === arr.lastIndexOf(w) ? '(' : ')'))
     .join('');
 }
+
+//* Day 16 07/12
+//todo Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+//! Моє рішення:
+var countSheep = function (num) {
+  let sheeps = '';
+  for (let i = 1; i <= num; i++) {
+    sheeps += i + ' sheep...';
+  }
+  return sheeps;
+};
+
+//todo Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string)
+//! Моє рішення:
+function sumStr(a, b) {
+  const sum = Number(a) + Number(b);
+
+  return sum.toString();
+}
+
+//todo Your function takes two arguments: current father's age (years) current age of his son (years) Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+//! Моє рішення:
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  const ageGap = Math.abs(dadYearsOld - 2 * sonYearsOld);
+
+  return ageGap;
+}
