@@ -462,3 +462,28 @@ function firstNonConsecutive(arr) {
 function friend(friends) {
   return friends.filter((n) => n.length === 4);
 }
+
+//* Day 19 10/12
+//todo Your task is to make two functions ( max and min, or maximum and minimum, etc., depending on the language ) that receive a list of integers as input, and return the largest and lowest number in that list, respectively.
+//! Моє рішення:
+var min = function (list) {
+  return Math.min(...list);
+};
+
+var max = function (list) {
+  return Math.max(...list);
+};
+
+//todo Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+//! Моє рішення:
+function greet(name, owner) {
+  return name == owner ? 'Hello boss' : 'Hello guest';
+}
+
+//todo Given a list of integers, determine whether the sum of its elements is odd or even. Give your answer as a string matching "odd" or "even". If the input array is empty consider it as: [0] (array with a zero).
+//! Моє рішення:
+function oddOrEven(array) {
+  const sum = array.reduce((acc, num) => acc + num, 0);
+
+  return sum % 2 === 0 ? 'even' : 'odd';
+}
