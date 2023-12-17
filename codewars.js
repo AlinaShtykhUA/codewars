@@ -572,3 +572,13 @@ function getSum(a, b) {
 
   return sum;
 }
+
+//* Day 25 16/12
+//! Weekend
+
+//* Day 26 17/12
+//todo You are given an odd-length array of integers, in which all of them are the same, except for one single number. Complete the method which accepts such an array, and returns that single different number.
+//! Моє рішення:
+function stray(numbers) {
+  return numbers.reduce((acc, cur) => acc ^ cur); //хор виключаюче або
+}
