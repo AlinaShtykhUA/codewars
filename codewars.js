@@ -582,3 +582,10 @@ function getSum(a, b) {
 function stray(numbers) {
   return numbers.reduce((acc, cur) => acc ^ cur); //хор виключаюче або
 }
+
+//* Day 27 18/12
+//todo Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+//! Моє рішення:
+function roundToNext5(n) {
+  return Math.ceil(n / 5) * 5;
+}
