@@ -660,3 +660,22 @@ function correct(string) {
     .map((s) => (s === '5' ? 'S' : s === '1' ? 'I' : s === '0' ? 'O' : s))
     .join('');
 }
+
+//* Day 31 22/12
+//todo Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+//! Моє рішення:
+function duplicateCount(text) {
+  let charCount = {};
+
+  for (let char of text) {
+    let charLower = char.toLowerCase();
+    charCount[charLower] = (charCount[charLower] || 0) + 1;
+  }
+
+  let duplicatesCount = Object.values(charCount).reduce(
+    (count, charCount) => count + (charCount > 1 ? 1 : 0),
+    0
+  );
+
+  return duplicatesCount;
+}
