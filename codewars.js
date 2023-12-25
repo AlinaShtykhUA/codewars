@@ -726,3 +726,6 @@ function dirReduc(arr) {
 
   return stack;
 }
+
+//* Day 34 25/12
+//! Weekend
