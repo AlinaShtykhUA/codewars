@@ -729,3 +729,13 @@ function dirReduc(arr) {
 
 //* Day 34 25/12
 //! Weekend
+
+//* Day 35 26/12
+//todo Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+//! Моє рішення:
+function reverseWords(str) {
+  return str
+    .split(' ')
+    .map((s) => s.split('').reverse().join(''))
+    .join(' ');
+}
