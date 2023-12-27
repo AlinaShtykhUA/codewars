@@ -774,6 +774,10 @@ function convertQueryToMap(query) {
   return query.split('&').reduce((result, pair) => {
     const [key, value] = pair.split('=').map(decodeURIComponent);
 
+    if (!key) {
+      return result;
+    }
+
     key.split('.').reduce((nested, prop, index, array) => {
       return (
         nested[prop] || (nested[prop] = index === array.length - 1 ? value : {})
