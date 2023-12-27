@@ -739,3 +739,15 @@ function reverseWords(str) {
     .map((s) => s.split('').reverse().join(''))
     .join(' ');
 }
+
+//* Day 36 27/12
+//todo Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+//! Моє рішення:
+function descendingOrder(n) {
+  return Number(
+    String(n)
+      .split('')
+      .sort((a, b) => b - a)
+      .join('')
+  );
+}
