@@ -794,3 +794,21 @@ function convertQueryToMap(query) {
 function isIsogram(str) {
   return new Set(str.toUpperCase()).size == str.length;
 }
+
+//* Day 38 29/12
+//todo Examples: foo -> foo1; foobar23 -> foobar24; foo0042 -> foo0043; foo9 -> foo10; foo099 -> foo100;Attention: If the number has leading zeros the amount of digits should be considered.
+//! Моє рішення:
+function incrementString(s) {
+  const number = s.match(/\d+$/);
+
+  if (number) {
+    const sNumber = number[0];
+    s = s.slice(0, -sNumber.length);
+    const incrementedNumber = String(parseInt(sNumber, 10) + 1);
+    const zerosToAdd = Math.max(0, sNumber.length - incrementedNumber.length);
+
+    return s + '0'.repeat(zerosToAdd) + incrementedNumber;
+  }
+
+  return s + '1';
+}
