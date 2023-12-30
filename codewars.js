@@ -812,3 +812,6 @@ function incrementString(s) {
 
   return s + '1';
 }
+
+//* Day 39 30/12
+//! Weekend
