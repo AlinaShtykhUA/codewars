@@ -818,3 +818,17 @@ function incrementString(s) {
 
 //* Day 40 31/12
 //! Weekend
+
+//* Day 41 01/01
+//todo In this kata you are required to, given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it. "a" = 1, "b" = 2, etc.
+//! Моє рішення:
+function alphabetPosition(text) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  return text
+    .toLowerCase()
+    .split('')
+    .filter((char) => alphabet.includes(char))
+    .map((char) => alphabet.indexOf(char) + 1)
+    .join(' ');
+}
