@@ -846,3 +846,37 @@ function tribonacci(signature, n) {
   }
   return n > 0 ? signature.slice(0, n) : [];
 }
+
+//* Day 43 03/01
+//todo Make a function that returns the value multiplied by 50 and increased by 6. If the value entered is a string it should return "Error".
+//! Моє рішення:
+function problem(x) {
+  return typeof x === 'number' ? x * 50 + 6 : 'Error';
+}
+
+//todo When provided with a number between 0-9, return it in words.
+//! Моє рішення:
+function switchItUp(number) {
+  const words = [
+    'Zero',
+    'One',
+    'Two',
+    'Three',
+    'Four',
+    'Five',
+    'Six',
+    'Seven',
+    'Eight',
+    'Nine',
+  ];
+
+  if (number >= 0 && number <= 9) {
+    return words[number];
+  }
+}
+
+//todo Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array
+//! Моє рішення:
+function solution(nums) {
+  return !nums || nums.length === 0 ? [] : nums.sort((a, b) => a - b);
+}
