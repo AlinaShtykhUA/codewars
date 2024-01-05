@@ -887,3 +887,22 @@ function solution(nums) {
 function smallEnough(a, limit) {
   return a.every((e) => e <= limit);
 }
+
+//* Day 45 05/01
+//todo There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out! https://www.codewars.com/kata/57b06f90e298a7b53d000a86/train/javascript
+//! Моє рішення:
+function queueTime(customers, n) {
+  if (n === 1) {
+    return customers.reduce((sum, time) => sum + time, 0);
+  }
+
+  const tills = Array(n).fill(0);
+
+  for (const time of customers) {
+    const minTime = Math.min(...tills);
+    const minIndex = tills.indexOf(minTime);
+    tills[minIndex] += time;
+  }
+
+  return Math.max(...tills);
+}
