@@ -906,3 +906,18 @@ function queueTime(customers, n) {
 
   return Math.max(...tills);
 }
+
+//* Day 46 06/01
+//! Weekend
+
+//* Day 47 07/01
+//todo Create a function that accepts a string and a single character, and returns an integer of the count of occurrences the 2nd argument is found in the first one. If no occurrences can be found, a count of 0 should be returned.
+//! Моє рішення:
+function strCount(str, letter) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    str[i] === letter ? count++ : 0;
+  }
+  return count;
+}
