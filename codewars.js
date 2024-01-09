@@ -928,3 +928,27 @@ function strCount(str, letter) {
 function enough(cap, on, wait) {
   return Math.max(0, on + wait - cap);
 }
+
+//* Day 49 09/01
+//todo In this kata you will create a function that takes in a list and returns a list with the reverse order.
+//! Моє рішення:
+function reverseList(list) {
+  return list.reverse();
+}
+
+//todo Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+//! Моє рішення:
+function smash(words) {
+  return words.join(' ');
+}
+
+//todo Numbers ending with zeros are boring. They might be fun in your world, but not here. Get rid of them. Only the ending ones.
+// 1450 -> 145
+// 960000 -> 96
+// 1050 -> 105
+// -1050 -> -105
+//todo Zero alone is fine, don't worry about it. Poor guy anyway
+//! Моє рішення:
+function noBoringZeros(n) {
+  return n === 0 ? 0 : parseInt(n.toString().replace(/0+$/, ''), 10);
+}
